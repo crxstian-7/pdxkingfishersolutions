@@ -180,6 +180,23 @@
             </div>
         </div>
 
+        <!-- Materials Page -->
+        <div id="materials" class="page">
+            <div class="container">
+                <h1>Materials & Resources</h1>
+                <p>Access documentation, guides, and resources for our SharePoint webparts.</p>
+                
+                <h2>Documentation</h2>
+                <p>Comprehensive guides and documentation for implementing and customizing our webparts in your SharePoint environment.</p>
+                
+                <h2>Support Resources</h2>
+                <p>Find answers to common questions, troubleshooting guides, and best practices for using our webparts effectively.</p>
+                
+                <h2>Video Tutorials</h2>
+                <p>Step-by-step video tutorials covering installation, configuration, and advanced customization options.</p>
+            </div>
+        </div>
+
         <!-- About Page -->
         <div id="about" class="page">
             <div class="container">
@@ -282,6 +299,19 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
+            });
+        });
+
+        // Prevent zoom on iOS when focusing inputs
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    // Prevent zoom by ensuring font-size is at least 16px on mobile
+                    if (window.innerWidth <= 768) {
+                        this.style.fontSize = '16px';
+                    }
+                });
             });
         });
     </script>
